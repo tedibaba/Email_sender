@@ -16,12 +16,15 @@ public class Controller_main {
     private TextField subject;
 
     //When the user presses send
-     public void Click(String user, String pass){
+     public void Click(ActionEvent event){
 
-         //trying to get data from the Controller_login
-         System.out.println(user);
-         String username = "email";
-         String password = "password";
+         //getting data from the Controller_login
+        Node node = (Node) event.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        User user = (User) stage.getUserData();
+
+        String email = user.getEmail();
+        String password = user.getPassword();
 
          // Getting all the input from the GUI
          String message = body.getText();
@@ -29,14 +32,11 @@ public class Controller_main {
          String sub = subject.getText();
 
          //Sending the email
-         Sending_the_email.send( receiver, message, sub, username, password);
+         Sending_the_email.send(receiver, message, sub, email, password);
 
          //Emptying the body for next use
          Clear.empty(body);
          Clear.empty(recipient);
 
      }
-
-
-
 }

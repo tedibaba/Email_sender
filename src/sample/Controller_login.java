@@ -43,16 +43,19 @@ public class Controller_login{
         boolean match_found = match.matches();
 
             if ((email.length() > 0) & (match_found) & (pass.length() > 0)){
-                FXMLLoader loader = new FXMLLoader();
-                loader.setLocation(getClass().getResource("main.fxml"));
-                Parent root = loader.load();
+
+                Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
                 Scene scene = new Scene(root);
-                Controller_main controller = loader.getController();
-                controller.Click(email, pass);
+
+                Node node = (Node) event.getSource();
+                Stage stage = (Stage) node.getScene().getWindow();
+                User user = new User(email, pass);
+                stage.setUserData(user);
+
                 //Getting the Stage information
-                Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
-                window.setScene(scene);
-                window.show();
+
+                stage.setScene(scene);
+                stage.show();
         } else{
             incorrect.setText("Please use a gmail account");
 

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller_main">
+   <top>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <TextField fx:id="recipient" prefHeight="0.0" prefWidth="600.0" promptText="Recipient" />
+            <TextField fx:id="subject" promptText="Subject" />
+         </children>
+      </VBox>
+   </top>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <TextArea fx:id="body" prefHeight="336.0" prefWidth="557.0" promptText="Body" />
+         </children>
+      </VBox>
+   </center>
+   <bottom>
+      <VBox BorderPane.alignment="CENTER">
+         <children>
+            <Label text="Yea by me" />
+         </children>
+      </VBox>
+   </bottom>
+   <right>
+      <Button fx:id="send" alignment="CENTER" mnemonicParsing="false" onAction="#Click" text="Send" BorderPane.alignment="BOTTOM_LEFT" />
+   </right>
+</BorderPane>

@@ -1,0 +1,25 @@
+.root {
+    -fx-background-color: #121212;
+}
+
+.label {
+    -fx-text-fill: #FFFFFF;
+}
+
+.button {
+    -fx-background-color: #BB86FC;
+}
+
+.text-field{
+    -fx-background-radius: 50px;
+    -fx-border-radius: 50px;
+    -fx-border-width: 5px;
+    -fx-border-color: #BB86FC;
+}
+
+.password-field {
+    -fx-background-radius: 50px;
+    -fx-border-radius: 50px;
+    -fx-border-width: 5px;
+    -fx-border-color: #BB86FC;
+}

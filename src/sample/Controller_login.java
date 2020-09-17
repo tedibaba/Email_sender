@@ -7,10 +7,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import java.util.regex.*;
 
@@ -26,9 +23,10 @@ public class Controller_login{
     private Button login;
     @FXML
     private Label incorrect;
+    @FXML
+    private CheckBox dark_mode;
 
     private Parent root;
-
 
 
 
@@ -64,6 +62,18 @@ public class Controller_login{
         }
     }
 
+
+    //If the text box is checked, then dark mode is on
+    public void dark_theme(ActionEvent event){
+        Node node = (Node) event.getSource();
+        Scene scene = node.getScene();
+        if(dark_mode.isSelected() == true){
+            scene.getStylesheets().add(getClass().getResource("login_page.css").toExternalForm());
+        }
+        else if (dark_mode.isSelected() == false){
+            scene.getStylesheets().clear();
+        }
+    }
 
     public String Username(){
         return username.getText();

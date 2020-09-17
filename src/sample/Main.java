@@ -17,7 +17,6 @@ public class Main extends Application {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("login_page.fxml"));
             Parent root = loader.load();
             Scene scene1 = new Scene(root);
-            scene1.getStylesheets().add(getClass().getResource("login_page.css").toExternalForm());
             primaryStage.setScene(scene1);
             primaryStage.setTitle("Email sender");
             primaryStage.show();
@@ -28,6 +27,5 @@ public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
-
     }
 }

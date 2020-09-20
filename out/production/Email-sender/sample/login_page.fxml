@@ -28,10 +28,11 @@
             </PasswordField>
             <AnchorPane prefHeight="47.0" prefWidth="294.0">
                <children>
-                  <Label fx:id="incorrect1" alignment="CENTER" layoutX="52.0" layoutY="39.0" prefHeight="17.0" prefWidth="191.0" />
-                  <Button layoutX="112.0" layoutY="2.0" mnemonicParsing="false" onAction="#Change_scene_and_get_login_info" prefHeight="27.0" prefWidth="71.0" text="Login" />
+                  <Button layoutX="172.0" layoutY="15.0" mnemonicParsing="false" onAction="#Change_scene_and_get_login_info" prefHeight="27.0" prefWidth="71.0" text="Login" />
+                  <Button fx:id="register" layoutX="52.0" layoutY="15.0" mnemonicParsing="false" onAction="#register" prefHeight="27.0" prefWidth="71.0" text="Register" />
                </children>
             </AnchorPane>
+            <Label fx:id="incorrect" alignment="CENTER" prefHeight="17.0" prefWidth="191.0" textFill="#d10f0f" />
             <CheckBox fx:id="dark_mode" mnemonicParsing="false" onAction="#dark_theme" text="Dark mode" />
          </children>
       </VBox>

@@ -11,15 +11,18 @@
 }
 
 .text-field{
+    -fx-background-color: #292929;
     -fx-background-radius: 50px;
-    -fx-border-radius: 50px;
-    -fx-border-width: 3px;
-    -fx-border-color: #BB86FC;
+    -fx-text-fill: white;
 }
+
+/*.text-area .content{*/
+/*    -fx-background-color: #292929;*/
+/*    -fx-background-radius: 50px;*/
+/*}*/
+
 
 .password-field {
     -fx-background-radius: 50px;
-    -fx-border-radius: 50px;
-    -fx-border-width: 3px;
-    -fx-border-color: #BB86FC;
+    -fx-background-color: #292929;
 }

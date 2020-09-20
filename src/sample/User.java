@@ -5,10 +5,13 @@ public class User {
 
     private String email;
     private String password;
+    private boolean darkMode;
 
-    public User(String email, String password){
+    public User(String email, String password, boolean darkMode){
         this.email = email;
         this.password = password;
+        this.darkMode = darkMode;
+
     }
 
     public String getEmail() {
@@ -25,6 +28,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public boolean isDarkMode() {
+        return darkMode;
+    }
+    public void setDarkMode(boolean darkMode) {
+        this.darkMode = darkMode;
     }
 
 }

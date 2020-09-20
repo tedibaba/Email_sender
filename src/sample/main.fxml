@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
@@ -19,7 +21,7 @@
    <center>
       <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
          <children>
-            <TextArea fx:id="body" prefHeight="336.0" prefWidth="557.0" promptText="Body" />
+            <TextArea fx:id="body" prefHeight="293.0" prefWidth="473.0" promptText="Body" />
          </children>
       </VBox>
    </center>
@@ -27,10 +29,14 @@
       <VBox BorderPane.alignment="CENTER">
          <children>
             <Label text="Yea by me" />
+            <AnchorPane fx:id="ap" prefHeight="0.0" prefWidth="389.0" />
          </children>
       </VBox>
    </bottom>
    <right>
       <Button fx:id="send" alignment="CENTER" mnemonicParsing="false" onAction="#Click" text="Send" BorderPane.alignment="BOTTOM_LEFT" />
    </right>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
 </BorderPane>

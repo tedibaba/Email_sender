@@ -1,13 +1,17 @@
 package sample;
 
+import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 public class Clear {
-    static void empty(TextArea field){
+    public static void empty(TextArea field){
         field.setText("");
     }
-    static void empty(TextField small){
+    public static void empty(TextField small){
         small.setText("");
+    }
+    public static void empty(PasswordField password){
+        password.setText("");
     }
 }

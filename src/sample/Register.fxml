@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="442.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller_register">
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="343.0" prefWidth="440.0">
+               <children>
+                  <TextField fx:id="username" layoutX="1.0" layoutY="32.0" prefHeight="25.0" prefWidth="438.0" promptText="Email" />
+                  <PasswordField fx:id="passe" layoutX="2.0" layoutY="99.0" prefHeight="25.0" prefWidth="437.0" promptText="Password" />
+                  <Label fx:id="exists" alignment="CENTER" layoutX="-55.0" layoutY="153.0" prefHeight="35.0" prefWidth="432.0">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </center>
+   <left>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="341.0" prefWidth="100.0">
+               <children>
+                  <Label layoutX="30.0" layoutY="24.0" text="Email:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="-14.0" layoutY="91.0" text="Password:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </left>
+   <padding>
+      <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+   </padding>
+   <top>
+      <Label alignment="CENTER" prefHeight="79.0" prefWidth="564.0" text="Register" BorderPane.alignment="CENTER">
+         <font>
+            <Font name="System Italic" size="88.0" />
+         </font>
+      </Label>
+   </top>
+   <bottom>
+      <HBox alignment="BOTTOM_CENTER" prefHeight="51.0" prefWidth="540.0" BorderPane.alignment="CENTER">
+         <children>
+            <AnchorPane prefHeight="53.0" prefWidth="552.0">
+               <children>
+                  <Button fx:id="register" layoutX="369.0" layoutY="1.0" mnemonicParsing="false" onAction="#register" text="Register">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="returnToLoginPage" layoutX="54.0" layoutY="1.0" mnemonicParsing="false" onAction="#goBack" prefHeight="51.0" prefWidth="126.0" text="Return " wrapText="true">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Button>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </bottom>
+</BorderPane>

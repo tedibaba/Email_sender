@@ -6,12 +6,14 @@ import java.util.*;
 import javax.mail.*;
 import javax.activation.*;
 import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
+import javax.mail.internet.MimeMultipart;
 
 
 public class Sending_the_email {
     //Sending the actual Email
-    static void send(String recipient, String body, String subject, String username, String password){
+    public static void send(String recipient, String body, String subject, String username, String password, ArrayList<ArrayList<String>>image){
         String to = recipient;
         String text = body;
         String subject_of_email = subject;
@@ -22,7 +24,6 @@ public class Sending_the_email {
         properties.put("mail.smtp.port", "465");
         properties.put("mail.smtp.ssl.enable", "true");
         properties.put("mail.smtp.auth", "true");
-
 
 
         Session session = Session.getInstance(properties, new javax.mail.Authenticator(){
@@ -38,14 +39,32 @@ public class Sending_the_email {
             message.setFrom(new InternetAddress(username));
             message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
             message.setSubject(subject_of_email);
-            message.setText(text);
+
+            BodyPart messageBodyPart1 = new MimeBodyPart();
+            messageBodyPart1.setText(body);
+
+            Multipart multipart = new MimeMultipart();
+            multipart.addBodyPart(messageBodyPart1);
+
+            for (ArrayList<String> path : image){
+                attachFile(multipart, path);
+            }
+
+            message.setContent(multipart);
+
             Transport.send(message);
             System.out.println("The message is being sent");
-
 
         } catch (MessagingException mex){
             mex.printStackTrace();
         }
     }
 
+    private static void attachFile(Multipart multipart, ArrayList<String> filePath) throws MessagingException {
+        DataSource source = new FileDataSource(filePath.get(0));
+        BodyPart messageBodyPart = new MimeBodyPart();
+        messageBodyPart.setDataHandler(new DataHandler(source));
+        messageBodyPart.setFileName(filePath.get(1));
+        multipart.addBodyPart(messageBodyPart);
+    }
 }

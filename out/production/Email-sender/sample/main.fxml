@@ -33,10 +33,15 @@
          </children>
       </VBox>
    </bottom>
-   <right>
-      <Button fx:id="send" alignment="CENTER" mnemonicParsing="false" onAction="#Click" text="Send" BorderPane.alignment="BOTTOM_LEFT" />
-   </right>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
    </padding>
+   <right>
+      <AnchorPane prefHeight="293.0" prefWidth="61.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutY="235.0" mnemonicParsing="false" onAction="#Click" prefHeight="37.0" prefWidth="61.0" text="Send" />
+            <Button layoutX="3.0" layoutY="171.0" mnemonicParsing="false" onAction="#attachImages" prefHeight="38.0" prefWidth="59.0" text="Attach" />
+         </children>
+      </AnchorPane>
+   </right>
 </BorderPane>

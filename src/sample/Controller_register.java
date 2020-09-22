@@ -17,6 +17,8 @@ import javax.mail.internet.AddressException;
 import javax.mail.internet.InternetAddress;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Controller_register {
     @FXML
@@ -34,8 +36,14 @@ public class Controller_register {
     public void register(ActionEvent event) throws SQLException, IOException, AddressException {
         String email = username.getText();
         String password = passe.getText();
+        //Making sure the email is a gmail one as this only works with gmail
+        String requirements = ".*@gmail.com.*";
+        Pattern pattern = Pattern.compile(requirements);
+        Matcher match = pattern.matcher(email);
+        boolean match_found = match.matches();
 
-        if (sql_queries.checkIfEmailAndPasswordIsInDatabase(email) == false){
+
+        if (sql_queries.checkIfEmailAndPasswordIsInDatabase(email) == false && (email.length() > 0) & (match_found) & (password.length() > 0)){
             sql_queries.register_email_and_password(email, password);
             Parent root = FXMLLoader.load(getClass().getResource("login_page.fxml"));
             Scene scene = new Scene(root);
@@ -48,7 +56,6 @@ public class Controller_register {
             Clear.empty(passe);
             exists.setText("That email has already been registered");
         }
-
     }
 
     // In case the user has accidentally clicked on register

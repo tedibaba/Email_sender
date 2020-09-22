@@ -35,36 +35,28 @@ public class Controller_login{
         String email = username.getText();
         String passe = password.getText();
 
-        //Making sure the email is a gmail one as this only works with gmail
-        String requirements = ".*@gmail.com.*";
-        Pattern pattern = Pattern.compile(requirements);
-        Matcher match = pattern.matcher(email);
-        boolean match_found = match.matches();
 
-        if ((email.length() > 0) & (match_found) & (passe.length() > 0)){
-                //The account does not exist or the account is entered incorrectly
-                if (sql_queries.checkIfEmailAndPasswordIsInDatabase(email) == false){
-                    incorrect.setText("That");
-                }
-                //Getting the Stage information
-                Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
-                Scene scene = new Scene(root);
-                if (dark_theme(event)){
-                    scene.getStylesheets().add(getClass().getResource("login_page.css").toExternalForm());
-                }
-                Node node = (Node) event.getSource();
-                Stage stage = (Stage) node.getScene().getWindow();
-                User user = new User(email, passe, dark_mode.isSelected());
-                stage.setUserData(user);
-                stage.setScene(scene);
-                stage.show();
+
+        if (sql_queries.checkLoginInformation(email, passe) == true){
+            //The account does not exist or the account is entered incorrectly
+            //Getting the Stage information
+            Parent root = FXMLLoader.load(getClass().getResource("main.fxml"));
+            Scene scene = new Scene(root);
+            if (dark_theme(event)){
+                scene.getStylesheets().add(getClass().getResource("login_page.css").toExternalForm());
+            }
+            Node node = (Node) event.getSource();
+            Stage stage = (Stage) node.getScene().getWindow();
+            User user = new User(email, passe, dark_mode.isSelected());
+            stage.setUserData(user);
+            stage.setScene(scene);
+            stage.show();
         } else{
-            incorrect.setText("Please use a gmail account");
+            incorrect.setText("That is the incorrect login information");
             username.setText("");
             password.setText("");
         }
     }
-
 
     public void register(ActionEvent event) throws IOException{
 

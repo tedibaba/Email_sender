@@ -52,6 +52,7 @@ public class Controller_main {
          //Emptying the body for next use
          Clear.empty(body);
          Clear.empty(recipient);
+         Clear.empty(subject);
      }
 
      //Attaching images to the email
@@ -65,6 +66,7 @@ public class Controller_main {
          System.out.println(file.getAbsolutePath());
      }
 
+     //Adding the file name and the path to an array which is used to attach the images to the email
      private ArrayList<String> fileNameAndPath(File file){
          ArrayList<String> pathAndName = new ArrayList<>();
          pathAndName.add(file.getAbsolutePath());

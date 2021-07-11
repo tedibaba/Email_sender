@@ -1,6 +1,7 @@
 package sample;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 public class sql_queries {
 
@@ -46,6 +47,21 @@ public class sql_queries {
         } else {
             return false;
         }
+    }
+
+    public static ArrayList<String> autoComplete(String letters) throws SQLException {
+        Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/email_password?autoReconnect=true&useSSL=false", "root", "password");
+        String search = "'%" + letters + "%'";
+        String sql = "select * from account where account.Email like" + search;
+        PreparedStatement check = connection.prepareStatement(sql);
+        ArrayList<String> possibleEmails = new ArrayList<>();
+        ResultSet rs = check.executeQuery();
+        int maxAmountOfResults = 0;
+        while (rs.next() && maxAmountOfResults <= 4){
+            possibleEmails.add(rs.getString("Email"));
+            maxAmountOfResults++;
+        }
+        return possibleEmails;
     }
 
 }

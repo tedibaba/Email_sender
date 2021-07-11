@@ -9,6 +9,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import org.controlsfx.control.textfield.TextFields;
+
+import java.util.ArrayList;
 import java.util.regex.*;
 import java.sql.*;
 
@@ -34,8 +37,6 @@ public class Controller_login{
     public void Change_scene_and_get_login_info(ActionEvent event) throws IOException, SQLException {
         String email = username.getText();
         String passe = password.getText();
-
-
 
         if (sql_queries.checkLoginInformation(email, passe) == true){
             //The account does not exist or the account is entered incorrectly
@@ -87,5 +88,11 @@ public class Controller_login{
         return false;
     }
 
+    public void autocomplete() throws SQLException {
+        String email = username.getText();
+        System.out.println(email);
+        ArrayList<String> possibleEmails = sql_queries.autoComplete(email);
+        TextFields.bindAutoCompletion(username, possibleEmails);
+    }
 
 }
